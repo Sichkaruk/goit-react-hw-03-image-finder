@@ -10,14 +10,8 @@ import {
   Link,
 } from "./App.styled";
 import logo from "./img/logo3.png";
-import toastMsg from "./utils/toast";
 
 class App extends Component {
-  onClick = () => {
-    console.log("click");
-    toastMsg("Flowers for Algernon", "info");
-  };
-
   render() {
     return (
       <Container>
