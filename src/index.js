@@ -13,7 +13,7 @@ root.render(
       <IconContext.Provider
         value={{
           size: "1.3em",
-          style: { verticalAlign: "middle", marginRight: "8px" },
+          style: { verticalAlign: "middle" },
         }}
       >
         <ToastContainer />

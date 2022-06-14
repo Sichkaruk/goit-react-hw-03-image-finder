@@ -1,36 +1,37 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Title,
-  Logo,
-  Button,
-  SubTitle,
-  List,
-  ListItem,
-  Link,
-} from "./App.styled";
+import { Container, Title, Logo } from "./App.styled";
 import logo from "./img/logo3.png";
+import Searchbar from "./components/Searchbar/Searchbar";
+import GalleryList from "./components/ImageGallery/ImageGallery";
+import Button from "./components/Button/Button";
 
 class App extends Component {
+  state = {
+    request: "",
+  };
+
+  handleSubmit = (request) => {
+    this.setState({ request });
+  };
+
   render() {
+    const {
+      handleSubmit,
+      state: { request },
+    } = this;
+
     return (
-      <Container>
-        <Title>
-          <Logo src={logo} alt="logo" width="50px" />
-          Image Finder
-        </Title>
-        <SubTitle>Template list</SubTitle>
-        <List>
-          <ListItem>Example list item</ListItem>
-          <ListItem>Example list item</ListItem>
-          <ListItem>Example list item</ListItem>
-        </List>
-        <Link href="#">Example link</Link>
-        <br /> <br />
-        <Button type="button" onClick={this.onClick}>
-          Click me
-        </Button>
-      </Container>
+      <>
+        <Container>
+          <Title>
+            <Logo src={logo} alt="logo" width="50px" />
+            Image Finder
+          </Title>
+          <Searchbar onSubmit={handleSubmit} />
+          <GalleryList request={request} />
+        </Container>
+        <Button />
+      </>
     );
   }
 }
